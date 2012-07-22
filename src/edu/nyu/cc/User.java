@@ -3,7 +3,7 @@ public class User {
     public String name="";
     public String email="";
     public String permalink="";
-    //float given=0.0f;
-    //float inspired_donations=0.0f;
-    //int num_of_recruits=0;
+    public String company="";
+    public String nickname="";
+    public String profile_pic_url="";
 }

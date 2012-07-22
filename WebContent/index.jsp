@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Let's read data!!</title>
+    <title>Welcome to RESTful world!!</title>
 </head>
 <body>
     <div id="introudction">
@@ -28,21 +28,33 @@
 		    <li>We can deal with the resources via HTTP protocol and method. </li>
 		    <li>To deal with them, we're going to use below four methods:
 		        <table border=1 cellpadding=1>
-		            <tr><td>Method</td><td>Purpose</td></tr>
-		            <tr><td>GET</td><td>Retrieving data</td></tr>
-		            <tr><td>POST</td><td>Creating new data</td></tr> 
-		            <tr><td>PUT</td><td>Modifying data</td></tr> 
-		            <tr><td>DELETE</td><td>Deleting data</td></tr>  
+		            <tr><th>Method</th><th>Purpose</th><th>Common Usage</th><th>Example</th></tr>
+		            <tr><td>GET</td><td>Retrieving data</td><td>HTML Anchor</td>
+		                  <td>&lt;a href="igivemore.org/users/jinyoung-heo/impact/graph.json"&gt;</td></tr>
+		            <tr><td>POST</td><td>Creating new data</td><td>HTML Form</td>
+		                  <td>&lt;form action="igivemore.org/users/jinyoung-heo" method="post"&gt;
+		                  </td></tr> 
+		            <tr><td>PUT</td><td>Modifying data*</td><td>HTML Form</td>
+		                  <td>&lt;form action="igivemore.org/users/jinyoung-heo" method="post"&gt;<br>
+		                      &nbsp;&nbsp;&nbsp;&lt;input type="hidden" name="_method" value="put"&gt;<br>
+                              &lt;form&gt;
+		                  </td></tr> 
+		            <tr><td>DELETE</td><td>Deleting data*</td><td>HTML Form</td>
+		                  <td>&lt;form action="igivemore.org/users/jinyoung-heo" method="post"&gt;<br>
+		                      &nbsp;&nbsp;&nbsp;&lt;input type="hidden" name="_method" value="delete"&gt;<br>
+                              &lt;form&gt;
+		                  </td></tr>  
 		        </table>
+		        * Since many browsers do not support HTTP put/delete method directly, 
+		        Rails accepts _method value for identifying given HTTP method
 		    </li>
 		</ul>
 		<ul>
-		  <li>I'm going to show you examples of RESTful program with these JSPs and iGiveMore service</li>
+		  <li>I'm going to show you examples of RESTful program with hand-made JSPs and iGiveMore service</li>
 		  <li>To do it, we need to do some pre-configurations:
 		      <ol type=1>
-	              <li>Pull newest source from github: I modified some code to use</li>
+	              <li>Pull newest iGiveMore source from github: I modified some code for our purpose</li>
 		          <li>Generating test data: it's easy if you already run the test data generation ruby code</li>
-		          <li>Start your Ruby on Rails server in iGiveMore application root directory as you did</li>
 		          <li>Turn off user authentication to make example simple:
 		              <ul>
 		                  <li>Comment out below line in app/controllers/users_controller.rb:<br/>
@@ -52,6 +64,7 @@
 		                  <li>If you can see returned JSON data, everything is going to being fine :)</li>
 		              </ul>
 		          </li>
+		          <li>Start your Ruby on Rails server in iGiveMore application root directory as you did</li>
 		          <li>We will use JSON format, thus we need a library such as GSON. You can find it in WebContent/WEB-INF/lib</li>
 		      </ol>
 		  </li>
@@ -60,9 +73,20 @@
     <div id="letsRoll">
         <ul>
             <li>Get data using Java code. Of course, you can do it with Javascript (actually, we already did it when we create the impcat graph.) 
-                Do you remember root user's email of your test data? Don't worry about it if you don't remeber it. Check this 
+                Do you remember root user's email of your test data? Don't worry even if you don't remember it. Check this 
                 <a href="userlist.jsp">list</a> first.
                 <!-- Normal HTML anchor is also involved to HTTP get method -->
+            </li>
+        </ul>
+    </div>
+    <hr>
+    <div id="letRollWithJavascript">
+        <ul>
+            <li>If you are interested in handling RESTful service with servlet, 
+                <a href="http://syrupsucker.blogspot.com/2008/10/making-your-servlet-application-urls.html">
+                Making your servlet application URLs more Restful
+                </a>
+                might be useful. But if you compare RoR's code to deal with RESTful with Java version......
             </li>
         </ul>
     </div>
