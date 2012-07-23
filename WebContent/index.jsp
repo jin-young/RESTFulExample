@@ -77,6 +77,12 @@
                 <a href="userlist.jsp">list</a> first.
                 <!-- Normal HTML anchor is also involved to HTTP get method -->
             </li>
+            <li>Do you want to modify campaign rewards? Then, input Server URL and click "GO"
+                <form action="rewards.jsp" method="get">
+                    <input type="text" name="url" id="url" size="100"/>
+                    <input type="submit" value="GO"/>
+                </form>
+            </li>
         </ul>
     </div>
     <hr>
